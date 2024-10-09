@@ -1,0 +1,20 @@
+{
+    "name": "ROS 2 Development Container",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "runArgs": ["--abort-on-container-exit"],
+    "initializeCommand": "mkdir -p /var/tmp/container-extensions && docker container prune -f",
+    "service": "rosboard",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-themes",
+                "twxs.cmake",
+                "donjayamanne.python-extension-pack",
+                "eamodio.gitlens",
+                "ms-iot.vscode-ros"
+            ]
+        }
+    }
+}

@@ -41,7 +41,8 @@ class SystemStatsSubscriber(object):
                     net_io_counters = psutil.net_io_counters()
                     virtual_memory = psutil.virtual_memory()
                     swap_memory = psutil.swap_memory()
-                    disk_usage = psutil.disk_usage('/')
+                    disk_usage_root = psutil.disk_usage('/')
+                    disk_usage_logging = psutil.disk_usage('/mnt/raid')
 
                 status = {}
 
@@ -55,7 +56,8 @@ class SystemStatsSubscriber(object):
                 
                 status["net_bytes_sent"] = net_io_counters.bytes_sent
                 status["net_bytes_recv"] = net_io_counters.bytes_recv
-                status["disk_usage_percent"] = disk_usage.percent
+                status["disk_usage_root_percent"] = disk_usage_root.percent
+                status["disk_usage_logging_percent"] = disk_usage_logging.percent
                 status["virtual_memory_percent"] = virtual_memory.percent
                 status["swap_memory_percent"] = swap_memory.percent
 
